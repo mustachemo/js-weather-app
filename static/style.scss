@@ -1,7 +1,8 @@
 $header-color: #80ed99;
 $main-container-color: #c7f9cc;
-$weather-modal-color: #20a6b3;
-$weather-text-color: #fca311;
+$weather-modal-top-color: #20a6b3;
+$weather-modal-bottom-color: #fdfcdc;
+$weather-text-color: #2d3436;
 
 .wrapper {
     width: 100vw;
@@ -78,68 +79,87 @@ $weather-text-color: #fca311;
         place-items: center;
 
         .weatherModal {
-            width: 50%;
             min-height: 500px;
             height: auto;
             display: grid;
             grid-template-areas: 
-            "name country"
+            "name name"
+            "country country"
             "condition condition"
             "tempF tempC"
             "feelslikeF feelslikeC"
             "humidity humidity"
             "windMPH windKPH";
-            background-color: $weather-modal-color;
+
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+            text-align: center;
 
             > * {
+              color: $weather-text-color;
+              padding: 1rem;
               border: 1px solid black;
               display: flex;
               justify-content: center;
               align-items: center;
+              font-family: 'Arial', sans-serif;
+              text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+              line-height: 1.4;
             }
 
             #weatherName {
-              color: $weather-text-color;
               font-size: 2rem;
               font-weight: bold;
               
+              background-color: $weather-modal-top-color;
               grid-area: name;
             }
 
             #weatherCountry {
+              background-color: $weather-modal-top-color;
+              font-size: 1.5rem;
               grid-area: country;
             }
 
             #weatherConditionText {
+              background-color: $weather-modal-bottom-color;
               grid-area: condition;
               font-size: 1.5rem;
+
             }
 
             #weatherTempC {
+              background-color: $weather-modal-bottom-color;
               grid-area: tempC;
             }
 
             #weatherTempF {
+              background-color: $weather-modal-bottom-color;
               grid-area: tempF;
             }
 
             #weatherFeelslikeC {
+              background-color: $weather-modal-bottom-color;
               grid-area: feelslikeC;
             }
 
             #weatherFeelslikeF {
+              background-color: $weather-modal-bottom-color;
               grid-area: feelslikeF;
             }
 
             #weatherHumidity {
+              background-color: $weather-modal-bottom-color;
               grid-area: humidity;
             }
 
             #weatherWindMPH {
+              background-color: $weather-modal-bottom-color;
               grid-area: windMPH;
             }
 
             #weatherWindKPH {
+              background-color: $weather-modal-bottom-color;
               grid-area: windKPH;
             }
         }
