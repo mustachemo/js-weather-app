@@ -18,7 +18,9 @@ async function getCurrentWeather(query, aqi = 'no') {
 		'&aqi=' +
 		aqi;
 
-	const reseponse = await fetch(finalURl);
+	const response = await fetch(finalURl, { mode: 'cors' });
+	const weatherData = await response.json();
+	console.log(weatherData);
 }
 
-getCurrentWeather('92688');
+getCurrentWeather('14467');
