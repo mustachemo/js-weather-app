@@ -1,3 +1,8 @@
+$header-color: #80ed99;
+$main-container-color: #c7f9cc;
+$weather-modal-color: #20a6b3;
+$weather-text-color: #fca311;
+
 .wrapper {
     width: 100vw;
     height: 100vh;
@@ -8,7 +13,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #ccd5ae;
+        background-color: $header-color;
 
         .search-box {
             margin: 1rem 0 0.5rem 0;
@@ -67,11 +72,76 @@
               }
         }
     }
-    .weather {
-        background-color: #e9edc9;
+    .main-container {
+        background-color: $main-container-color;
+        display: grid;
+        place-items: center;
 
         .weatherModal {
-            background-color: #fefae0;
+            width: 50%;
+            min-height: 500px;
+            height: auto;
+            display: grid;
+            grid-template-areas: 
+            "name country"
+            "condition condition"
+            "tempF tempC"
+            "feelslikeF feelslikeC"
+            "humidity humidity"
+            "windMPH windKPH";
+            background-color: $weather-modal-color;
+
+            > * {
+              border: 1px solid black;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            #weatherName {
+              color: $weather-text-color;
+              font-size: 2rem;
+              font-weight: bold;
+              
+              grid-area: name;
+            }
+
+            #weatherCountry {
+              grid-area: country;
+            }
+
+            #weatherConditionText {
+              grid-area: condition;
+              font-size: 1.5rem;
+            }
+
+            #weatherTempC {
+              grid-area: tempC;
+            }
+
+            #weatherTempF {
+              grid-area: tempF;
+            }
+
+            #weatherFeelslikeC {
+              grid-area: feelslikeC;
+            }
+
+            #weatherFeelslikeF {
+              grid-area: feelslikeF;
+            }
+
+            #weatherHumidity {
+              grid-area: humidity;
+            }
+
+            #weatherWindMPH {
+              grid-area: windMPH;
+            }
+
+            #weatherWindKPH {
+              grid-area: windKPH;
+            }
         }
     }
 }
