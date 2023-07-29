@@ -1,3 +1,17 @@
 .wrapper {
-    background-color: #a53939;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+
+    background-color: cyan;
+    border-radius: 15px;
+
+    header {
+        border: 1px solid red;
+    }
+
+    .container {
+        border: 1px solid red;
+    }
 }
