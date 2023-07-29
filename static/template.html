@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cc64a29b8a.js" crossorigin="anonymous"></script>
     <script src="main.js" defer></script>
     <title>Weather app</title>
 </head>
 <body>
     <div class="wrapper">
-        <header>
-            <div>The Weather App</div>
-        </header>
-        <div class="container">
-            <div class="search">
-                <input type="text" class="search__input" placeholder="Search city">
-                <button class="search__button">Search</button>
+        <div class="header">
+            <div class="search-box">
+                <button class="btn-search"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search...">
             </div>
-            <div class="weather">
-                <div class="weather__city">City</div>
-                <div class="weather__temperature">Temperature</div>
-                <div class="weather__description">Description</div>
-                <div class="weather__wind">Wind</div>
-                <div class="weather__humidity">Humidity</div>
-                <div class="weather__pressure">Pressure</div>
+        </div>
+
+        <div class="weather">
+            <div class="weatherModal">
+                weather modal here
             </div>
         </div>
     </div>
