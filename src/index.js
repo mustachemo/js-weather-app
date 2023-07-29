@@ -25,4 +25,4 @@ async function getCurrentWeather(query, aqi = 'no') {
 	console.log(weatherData);
 }
 
-getCurrentWeather('14467');
+getCurrentWeather('92688');
