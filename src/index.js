@@ -1,6 +1,7 @@
 import '../node_modules/minireset.css/minireset.min.css';
 import '../static/style.scss';
 import getCurrentWeather from './modules/getCurrentWeather';
+import showCurrentWeather from './modules/showCurrentWeather';
 
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
@@ -12,7 +13,14 @@ searchForm.addEventListener('submit', (e) => {
 
 searchBtn.addEventListener('click', async () => {
 	if (searchInput.value === '') return;
+	const mainContainer = document.querySelector('.main-container');
+	console.log('before get weather data');
 	const weatherData = await getCurrentWeather(searchInput.value);
+	console.log('after get weather data');
+	console.log('before show weather data');
+	const weatherModal = await showCurrentWeather(weatherData);
+	console.log('after show weather data');
+	mainContainer.appendChild(weatherModal);
 	console.log(weatherData);
 	console.log(weatherData.location.name);
 	console.log(weatherData.location.country);
