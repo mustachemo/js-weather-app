@@ -1,22 +1,17 @@
 import '../node_modules/minireset.css/minireset.min.css';
 import '../static/style.scss';
+import getCurrentWeather from './modules/getCurrentWeather';
 
-const weatherAPIbase = 'http://api.weatherapi.com/v1';
-const curretWeatherEndpoint = '/current.json';
-const weatherAPIKey = 'faab396b2645438bbdf04155232907';
-// todo: add search autocomplete and forecast
-// *const forecastWeatherEndpoint = '/forecast.json';
-// * const searchAutocompleteWeatherEndpoint = '/search.json';
+const searchForm = document.getElementById('searchForm');
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchButton');
 
-async function getCurrentWeather(query, aqi = 'no') {
-	const modifiedQuery = query.replace(/ /g, '%20');
-	const finalURl = `${
-		weatherAPIbase + curretWeatherEndpoint
-	}?key=${weatherAPIKey}&q=${modifiedQuery}&aqi=${aqi}`;
+searchForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+});
 
-	const response = await fetch(finalURl, { mode: 'cors' });
-	const weatherData = await response.json();
+searchBtn.addEventListener('click', async () => {
+	if (searchInput.value === '') return;
+	const weatherData = await getCurrentWeather(searchInput.value);
 	console.log(weatherData);
-}
-
-getCurrentWeather('92688');
+});
