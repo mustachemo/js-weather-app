@@ -13,13 +13,10 @@ export default async function getCurrentWeather(query, aqi = 'no') {
 
 	try {
 		const response = await fetch(finalURl, { mode: 'cors' });
-		if (!response.ok) {
-			throw new Error('Network response was not ok');
-		}
+		if (!response.ok) throw new Error(`Location ${query} not found`);
 		const weatherData = await response.json();
 		return weatherData;
 	} catch (error) {
-		console.error('There has been a problem with your fetch operation:', error);
-		return null;
+		return error.message;
 	}
 }

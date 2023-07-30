@@ -9,14 +9,16 @@ const searchInput = document.getElementById('searchInput');
 searchForm.addEventListener('submit', async (e) => {
 	e.preventDefault();
 
-	console.log('search button clicked');
 	if (searchInput.value === '') return;
 	const mainContainer = document.querySelector('.main-container');
 	mainContainer.innerHTML = '';
 	const weatherData = await getCurrentWeather(searchInput.value);
+	if (typeof weatherData === 'string') {
+		mainContainer.innerHTML = `<div class="error">${weatherData}</h1>`;
+		return;
+	}
 	const weatherModal = await showCurrentWeather(weatherData);
-	await mainContainer.appendChild(weatherModal);
+	mainContainer.appendChild(weatherModal);
 	// todo get weather icon and display it
 	// * console.log(weatherData.current.condition.icon);
-	console.log(weatherData);
 });
