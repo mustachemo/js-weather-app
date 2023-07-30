@@ -19,6 +19,4 @@ searchForm.addEventListener('submit', async (e) => {
 	}
 	const weatherModal = await showCurrentWeather(weatherData);
 	mainContainer.appendChild(weatherModal);
-	// todo get weather icon and display it
-	// * console.log(weatherData.current.condition.icon);
 });
