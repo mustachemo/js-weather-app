@@ -11,7 +11,15 @@ export default async function getCurrentWeather(query, aqi = 'no') {
 		weatherAPIbase + curretWeatherEndpoint
 	}?key=${weatherAPIKey}&q=${modifiedQuery}&aqi=${aqi}`;
 
-	const response = await fetch(finalURl, { mode: 'cors' });
-	const weatherData = await response.json();
-	return weatherData;
+	try {
+		const response = await fetch(finalURl, { mode: 'cors' });
+		if (!response.ok) {
+			throw new Error('Network response was not ok');
+		}
+		const weatherData = await response.json();
+		return weatherData;
+	} catch (error) {
+		console.error('There has been a problem with your fetch operation:', error);
+		return null;
+	}
 }
