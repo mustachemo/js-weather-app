@@ -1,4 +1,4 @@
-const weatherAPIbase = 'http://api.weatherapi.com/v1';
+const weatherAPIbase = 'https://api.weatherapi.com/v1';
 const curretWeatherEndpoint = '/current.json';
 const weatherAPIKey = 'faab396b2645438bbdf04155232907';
 
